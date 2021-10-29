@@ -3,6 +3,8 @@ let flag = 0;
 let seconds = 0;
 let minutes = 0;
 let secondsPadding;
+let minutesPadding;
+let hoursPadding;
 let hours = 0;
 let timer = 0;
 
@@ -29,7 +31,11 @@ const startTheStopwatch = () => {
     }
     //(seconds < 10)? secondsPadding = "0" : secondsPadding = "";
     secondsPadding = setPadding(seconds);
-    document.getElementById("timeDisplay").innerHTML = hours + ":" + minutes + ":" + secondsPadding + seconds;
+    minutesPadding = setPadding(minutes);
+    hoursPadding = setPadding(hours);
+    document.getElementById("timeDisplay").innerHTML = hoursPadding + hours + ":" + 
+                                                      minutesPadding + minutes + ":" +
+                                                      secondsPadding + seconds;
     timer = setTimeout(startTheStopwatch, 1000);
  };
 
