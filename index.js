@@ -2,7 +2,7 @@
 let flag = 0;
 let seconds = 0;
 let minutes = 0;
-let tenSecondSpot;
+let secondsPadding;
 let hours = 0;
 let timer = 0;
 
@@ -27,8 +27,9 @@ const startTheStopwatch = () => {
        hours++;
        minutes = 0;
     }
-    (seconds < 10)? tenSecondSpot = "0" : tenSecondSpot = "";
-    document.getElementById("timeDisplay").innerHTML = hours + ":" + minutes + ":" + tenSecondSpot + seconds;
+    //(seconds < 10)? secondsPadding = "0" : secondsPadding = "";
+    secondsPadding = setPadding(seconds);
+    document.getElementById("timeDisplay").innerHTML = hours + ":" + minutes + ":" + secondsPadding + seconds;
     timer = setTimeout(startTheStopwatch, 1000);
  };
 
@@ -36,4 +37,8 @@ const startTheStopwatch = () => {
     clearTimeout(timer);
     timer = 0;
     flag = 0;
+ };
+
+ const setPadding = (number) => {
+   return (number < 10)? "0" : "";
  };
